@@ -1,0 +1,2127 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "id": "31b37d15-2dc8-4a0b-abab-2685c39ca07f",
+  "prevIds": ["ecebdced-1556-4ad5-8092-c322d2a3bf21"],
+  "ddl": [
+    {
+      "name": "absences",
+      "entityType": "tables"
+    },
+    {
+      "name": "broadcasts",
+      "entityType": "tables"
+    },
+    {
+      "name": "call_ups",
+      "entityType": "tables"
+    },
+    {
+      "name": "cards",
+      "entityType": "tables"
+    },
+    {
+      "name": "crew_assignments",
+      "entityType": "tables"
+    },
+    {
+      "name": "goals",
+      "entityType": "tables"
+    },
+    {
+      "name": "legs",
+      "entityType": "tables"
+    },
+    {
+      "name": "lineup_entries",
+      "entityType": "tables"
+    },
+    {
+      "name": "lineups",
+      "entityType": "tables"
+    },
+    {
+      "name": "matches",
+      "entityType": "tables"
+    },
+    {
+      "name": "shootout_kicks",
+      "entityType": "tables"
+    },
+    {
+      "name": "substitutions",
+      "entityType": "tables"
+    },
+    {
+      "name": "ties",
+      "entityType": "tables"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "registration_id",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "reason",
+      "entityType": "columns",
+      "table": "absences"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "medium",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "url",
+      "entityType": "columns",
+      "table": "broadcasts"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "participation_id",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "player_id",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "status",
+      "entityType": "columns",
+      "table": "call_ups"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "participation_id",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "registration_id",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "kind",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "minute",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "stoppage_minute",
+      "entityType": "columns",
+      "table": "cards"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "person_id",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "role",
+      "entityType": "columns",
+      "table": "crew_assignments"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "participation_id",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "registration_id",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "kind",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "minute",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "stoppage_minute",
+      "entityType": "columns",
+      "table": "goals"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "tie_id",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "leg_number",
+      "entityType": "columns",
+      "table": "legs"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "lineup_id",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "registration_id",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "role",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "shirt_number",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": "false",
+      "generated": null,
+      "name": "is_starting_captain",
+      "entityType": "columns",
+      "table": "lineup_entries"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "participation_id",
+      "entityType": "columns",
+      "table": "lineups"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "edition_id",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "round_id",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "group_id",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "home_participation_id",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "away_participation_id",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "status",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "number",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "kickoff_at",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "timezone",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "venue",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "duration_minutes",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "home_score",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "away_score",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "home_half_time_score",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "away_half_time_score",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "home_penalty_score",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "away_penalty_score",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "attendance",
+      "entityType": "columns",
+      "table": "matches"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "participation_id",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "registration_id",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "outcome",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "sequence",
+      "entityType": "columns",
+      "table": "shootout_kicks"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "match_id",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "participation_id",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "outgoing_registration_id",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "incoming_registration_id",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "minute",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "stoppage_minute",
+      "entityType": "columns",
+      "table": "substitutions"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_by",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_at",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "updated_by",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_at",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "deleted_by",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "round_id",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "home_participation_id",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "away_participation_id",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "type": "text",
+      "notNull": false,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "winner_participation_id",
+      "entityType": "columns",
+      "table": "ties"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_absences_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "absences"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_broadcasts_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "broadcasts"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_cards_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "cards"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_crew_assignments_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "crew_assignments"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_goals_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "goals"
+    },
+    {
+      "columns": ["tie_id"],
+      "tableTo": "ties",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_legs_tie_id_ties_id_fk",
+      "entityType": "fks",
+      "table": "legs"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_legs_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "legs"
+    },
+    {
+      "columns": ["lineup_id"],
+      "tableTo": "lineups",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_lineup_entries_lineup_id_lineups_id_fk",
+      "entityType": "fks",
+      "table": "lineup_entries"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_lineups_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "lineups"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_shootout_kicks_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "shootout_kicks"
+    },
+    {
+      "columns": ["match_id"],
+      "tableTo": "matches",
+      "columnsTo": ["id"],
+      "onUpdate": "NO ACTION",
+      "onDelete": "NO ACTION",
+      "nameExplicit": false,
+      "name": "fk_substitutions_match_id_matches_id_fk",
+      "entityType": "fks",
+      "table": "substitutions"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "absences_pk",
+      "table": "absences",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "broadcasts_pk",
+      "table": "broadcasts",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "call_ups_pk",
+      "table": "call_ups",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "cards_pk",
+      "table": "cards",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "crew_assignments_pk",
+      "table": "crew_assignments",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "goals_pk",
+      "table": "goals",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "legs_pk",
+      "table": "legs",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "lineup_entries_pk",
+      "table": "lineup_entries",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "lineups_pk",
+      "table": "lineups",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "matches_pk",
+      "table": "matches",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "shootout_kicks_pk",
+      "table": "shootout_kicks",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "substitutions_pk",
+      "table": "substitutions",
+      "entityType": "pks"
+    },
+    {
+      "columns": ["id"],
+      "nameExplicit": false,
+      "name": "ties_pk",
+      "table": "ties",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        {
+          "value": "match_id",
+          "isExpression": false
+        },
+        {
+          "value": "registration_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"absences\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "absences_match_id_registration_id_unq",
+      "entityType": "indexes",
+      "table": "absences"
+    },
+    {
+      "columns": [
+        {
+          "value": "participation_id",
+          "isExpression": false
+        },
+        {
+          "value": "player_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"call_ups\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "call_ups_participation_id_player_id_unq",
+      "entityType": "indexes",
+      "table": "call_ups"
+    },
+    {
+      "columns": [
+        {
+          "value": "match_id",
+          "isExpression": false
+        },
+        {
+          "value": "person_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"crew_assignments\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "crew_assignments_match_id_person_id_unq",
+      "entityType": "indexes",
+      "table": "crew_assignments"
+    },
+    {
+      "columns": [
+        {
+          "value": "tie_id",
+          "isExpression": false
+        },
+        {
+          "value": "leg_number",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"legs\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "legs_tie_id_leg_number_unq",
+      "entityType": "indexes",
+      "table": "legs"
+    },
+    {
+      "columns": [
+        {
+          "value": "lineup_id",
+          "isExpression": false
+        },
+        {
+          "value": "registration_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"lineup_entries\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "lineup_entries_lineup_id_registration_id_unq",
+      "entityType": "indexes",
+      "table": "lineup_entries"
+    },
+    {
+      "columns": [
+        {
+          "value": "lineup_id",
+          "isExpression": false
+        },
+        {
+          "value": "shirt_number",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"lineup_entries\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "lineup_entries_lineup_id_shirt_number_unq",
+      "entityType": "indexes",
+      "table": "lineup_entries"
+    },
+    {
+      "columns": [
+        {
+          "value": "lineup_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "\"lineup_entries\".\"deleted_at\" is null and \"lineup_entries\".\"is_starting_captain\" = 1",
+      "origin": "manual",
+      "name": "lineup_entries_lineup_id_starting_captain_unq",
+      "entityType": "indexes",
+      "table": "lineup_entries"
+    },
+    {
+      "columns": [
+        {
+          "value": "match_id",
+          "isExpression": false
+        },
+        {
+          "value": "participation_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"lineups\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "lineups_match_id_participation_id_unq",
+      "entityType": "indexes",
+      "table": "lineups"
+    },
+    {
+      "columns": [
+        {
+          "value": "number",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"matches\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "matches_number_unq",
+      "entityType": "indexes",
+      "table": "matches"
+    },
+    {
+      "columns": [
+        {
+          "value": "match_id",
+          "isExpression": false
+        },
+        {
+          "value": "sequence",
+          "isExpression": false
+        }
+      ],
+      "isUnique": true,
+      "where": "(\"shootout_kicks\".\"deleted_at\" is null)",
+      "origin": "manual",
+      "name": "shootout_kicks_match_id_sequence_unq",
+      "entityType": "indexes",
+      "table": "shootout_kicks"
+    },
+    {
+      "value": "\"minute\" >= 0",
+      "name": "cards_minute_non_negative",
+      "entityType": "checks",
+      "table": "cards"
+    },
+    {
+      "value": "\"minute\" >= 0",
+      "name": "goals_minute_non_negative",
+      "entityType": "checks",
+      "table": "goals"
+    },
+    {
+      "value": "\"leg_number\" > 0",
+      "name": "legs_leg_number_positive",
+      "entityType": "checks",
+      "table": "legs"
+    },
+    {
+      "value": "\"shirt_number\" > 0",
+      "name": "lineup_entries_shirt_number_positive",
+      "entityType": "checks",
+      "table": "lineup_entries"
+    },
+    {
+      "value": "\"home_participation_id\" <> \"away_participation_id\"",
+      "name": "matches_participations_distinct",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "(\"home_score\" is null or \"home_score\" >= 0) and (\"away_score\" is null or \"away_score\" >= 0)",
+      "name": "matches_scores_non_negative",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "(\"home_half_time_score\" is null or \"home_half_time_score\" >= 0) and (\"away_half_time_score\" is null or \"away_half_time_score\" >= 0)",
+      "name": "matches_half_time_scores_non_negative",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "(\"home_half_time_score\" is null or \"home_score\" is null or \"home_half_time_score\" <= \"home_score\") and (\"away_half_time_score\" is null or \"away_score\" is null or \"away_half_time_score\" <= \"away_score\")",
+      "name": "matches_half_time_scores_within_full_time",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "(\"home_penalty_score\" is null) = (\"away_penalty_score\" is null)",
+      "name": "matches_penalty_scores_paired",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "(\"home_penalty_score\" is null or \"home_penalty_score\" >= 0) and (\"away_penalty_score\" is null or \"away_penalty_score\" >= 0)",
+      "name": "matches_penalty_scores_non_negative",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "\"home_penalty_score\" is null or (\"home_score\" = \"away_score\" and \"home_penalty_score\" <> \"away_penalty_score\")",
+      "name": "matches_penalty_scores_decide_a_draw",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "\"attendance\" is null or \"attendance\" >= 0",
+      "name": "matches_attendance_non_negative",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "\"duration_minutes\" is null or \"duration_minutes\" > 0",
+      "name": "matches_duration_minutes_positive",
+      "entityType": "checks",
+      "table": "matches"
+    },
+    {
+      "value": "\"sequence\" > 0",
+      "name": "shootout_kicks_sequence_positive",
+      "entityType": "checks",
+      "table": "shootout_kicks"
+    },
+    {
+      "value": "\"outgoing_registration_id\" <> \"incoming_registration_id\"",
+      "name": "substitutions_registrations_distinct",
+      "entityType": "checks",
+      "table": "substitutions"
+    },
+    {
+      "value": "\"minute\" >= 0",
+      "name": "substitutions_minute_non_negative",
+      "entityType": "checks",
+      "table": "substitutions"
+    },
+    {
+      "value": "\"home_participation_id\" <> \"away_participation_id\"",
+      "name": "ties_participations_distinct",
+      "entityType": "checks",
+      "table": "ties"
+    }
+  ],
+  "renames": []
+}

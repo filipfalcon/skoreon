@@ -36,6 +36,10 @@ export const matches = sqliteTable(
     awayScore: integer('away_score'),
     homeHalfTimeScore: integer('home_half_time_score'),
     awayHalfTimeScore: integer('away_half_time_score'),
+    // A penalty shoot-out, when a drawn tie was decided by one; the score
+    // above stays the score after play. Both set or neither.
+    homePenaltyScore: integer('home_penalty_score'),
+    awayPenaltyScore: integer('away_penalty_score'),
     attendance: integer('attendance'),
   },
   (t) => [
@@ -56,6 +60,19 @@ export const matches = sqliteTable(
     check(
       'matches_half_time_scores_within_full_time',
       sql`(${t.homeHalfTimeScore} is null or ${t.homeScore} is null or ${t.homeHalfTimeScore} <= ${t.homeScore}) and (${t.awayHalfTimeScore} is null or ${t.awayScore} is null or ${t.awayHalfTimeScore} <= ${t.awayScore})`,
+    ),
+    check(
+      'matches_penalty_scores_paired',
+      sql`(${t.homePenaltyScore} is null) = (${t.awayPenaltyScore} is null)`,
+    ),
+    check(
+      'matches_penalty_scores_non_negative',
+      sql`(${t.homePenaltyScore} is null or ${t.homePenaltyScore} >= 0) and (${t.awayPenaltyScore} is null or ${t.awayPenaltyScore} >= 0)`,
+    ),
+    // A shoot-out only follows a draw, and it always finds a winner.
+    check(
+      'matches_penalty_scores_decide_a_draw',
+      sql`${t.homePenaltyScore} is null or (${t.homeScore} = ${t.awayScore} and ${t.homePenaltyScore} <> ${t.awayPenaltyScore})`,
     ),
     check('matches_attendance_non_negative', sql`${t.attendance} is null or ${t.attendance} >= 0`),
     check(
