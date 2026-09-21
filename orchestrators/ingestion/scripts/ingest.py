@@ -4,7 +4,7 @@ MatchReport JSON (parser skoreon) -> SQL do skoreova-data. Ověří v kopii, pak
 Volby přes env: LOANS="Given Family>Team;..." registruje existující osobu k dalšímu týmu (hostování).
 """
 import json, sqlite3, sys, os, re, shutil, subprocess, datetime, zoneinfo, tempfile
-D="/Users/johndoe/Studio/Development/filipfalcon/skoreova-data"; K="/Users/johndoe/Workspace/Dev/kotkoroid/skoreon"
+D="/Users/johndoe/Studio/Development/filipfalcon/skoreova-data"; K=os.path.abspath(os.path.join(os.path.dirname(__file__),"..","..",".."))
 comp, rnd, target, files = sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4:]
 ALIAS={'SK Artis Brno Líšeň-Žabovřesky':'SK Artis Brno','FC Viktoria Plzeň "B"':'FC Viktoria Plzeň B','AC Sparta Praha "B"':'AC Sparta Praha B',
  'FC Slovan Liberec "B"':'FC Slovan Liberec B','Lokomotiva Brno H.H.':'Lokomotiva Brno Horní Heršpice','1.FC Slovácko':'1. FC Slovácko',

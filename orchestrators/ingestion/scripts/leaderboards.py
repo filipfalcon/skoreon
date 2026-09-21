@@ -5,7 +5,7 @@ Keeper score: A = (GA + k·μ)/(min/90 + k), k=3, μ pooled GA per 90 over the c
 C1 = 1 − A/max(A); C2 = clean minutes / (90 × matches her team played); score = ½C1 + ½C2.
 Outfield players who kept goal are passed as EXTRA_KEEPERS="Family Given>Team>minutes>ga;…"."""
 import sqlite3, sys, os, subprocess, tempfile
-D="/Users/johndoe/Studio/Development/filipfalcon/skoreova-data"; K="/Users/johndoe/Workspace/Dev/kotkoroid/skoreon"
+D="/Users/johndoe/Studio/Development/filipfalcon/skoreova-data"; K=os.path.abspath(os.path.join(os.path.dirname(__file__),"..","..",".."))
 T=tempfile.mkdtemp(prefix='skoreova-lb-'); INF=10**6
 def build(db, migs, files):
     for m in sorted(subprocess.run(f"ls {migs}/*/migration.sql",shell=True,capture_output=True,text=True).stdout.split()): subprocess.run(f"sqlite3 {db} < '{m}'",shell=True,check=True)
