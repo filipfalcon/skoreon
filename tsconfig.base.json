@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        // Diagnostics stay on in the editor as well as in `vp check`: nothing else surfaces Oxlint results in the IDE, so there is no double reporting to avoid.
+        "name": "@effect/language-service"
+      }
+    ],
+    "target": "esnext",
     "composite": true,
     "declaration": true,
     "declarationMap": true,

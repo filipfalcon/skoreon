@@ -10,6 +10,8 @@ import { phases } from '#schema/Phases';
 import { players } from '#schema/Players';
 import { registrations } from '#schema/Registrations';
 import { rounds } from '#schema/Rounds';
+import { teamAliases } from '#schema/TeamAliases';
+import { teamSourceIds } from '#schema/TeamSourceIds';
 import { teams } from '#schema/Teams';
 import { editionTiebreakers } from '#schema/EditionTiebreakers';
 import { defineRelations } from 'drizzle-orm';
@@ -17,6 +19,8 @@ import { defineRelations } from 'drizzle-orm';
 export const schema = {
   associations,
   teams,
+  teamAliases,
+  teamSourceIds,
   competitions,
   editions,
   phases,
@@ -45,6 +49,22 @@ export const relations = defineRelations(schema, (r) => ({
   },
   teams: {
     participations: r.many.participations(),
+    aliases: r.many.teamAliases(),
+    sourceIds: r.many.teamSourceIds(),
+  },
+  teamAliases: {
+    team: r.one.teams({
+      from: r.teamAliases.teamId,
+      to: r.teams.id,
+      optional: false,
+    }),
+  },
+  teamSourceIds: {
+    team: r.one.teams({
+      from: r.teamSourceIds.teamId,
+      to: r.teams.id,
+      optional: false,
+    }),
   },
   competitions: {
     association: r.one.associations({

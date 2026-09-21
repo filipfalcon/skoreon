@@ -6,6 +6,9 @@
       "path": "./orchestrators/api-gateway"
     },
     {
+      "path": "./orchestrators/ingestion"
+    },
+    {
       "path": "./services/catalog"
     },
     {

@@ -1,4 +1,6 @@
 import { bindCatalog } from '#Catalog';
+import { bindIngestion } from '#Ingestion';
+import { MatchesHandlers } from '#handlers/Matches';
 import { PlayersHandlers } from '#handlers/Players';
 import { TeamsHandlers } from '#handlers/Teams';
 import { Contract } from '@skoreon/api-gateway-contract/Contract';
@@ -18,13 +20,15 @@ export default class ApiGateway extends Cloudflare.Worker<ApiGateway>()(
     dev: { port: 1340, strictPort: true },
   },
   Effect.gen(function* () {
-    // INIT: register the service binding to the catalog worker; get a typed RPC client.
+    // INIT: register the service bindings to the catalog and ingestion workers; get typed RPC clients.
     const catalog = yield* bindCatalog;
+    const ingestion = yield* bindIngestion;
 
     return {
       fetch: HttpApiBuilder.layer(Contract, { openapiPath: '/openapi' }).pipe(
         Layer.provide(PlayersHandlers(catalog)),
         Layer.provide(TeamsHandlers(catalog)),
+        Layer.provide(MatchesHandlers(ingestion)),
         Layer.provide(HttpApiSwagger.layer(Contract, { path: '/swagger' })),
         Layer.provide(HttpServer.layerServices),
         HttpRouter.toHttpEffect,

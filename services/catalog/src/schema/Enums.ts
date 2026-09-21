@@ -53,3 +53,6 @@ export type SplitPointsCarryover = typeof SplitPointsCarryover.Type;
 
 export const Sex = Schema.Literals(['FEMALE', 'MALE']);
 export type Sex = typeof Sex.Type;
+
+export const Source = Schema.Literals(['FACR']);
+export type Source = typeof Source.Type;

@@ -6,9 +6,14 @@
   "imports": {
     "#*": "./src/*.ts"
   },
+  "exports": {
+    "./*": "./src/*.ts",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "@skoreon/api-gateway-contract": "0.0.0",
     "@skoreon/catalog-service": "0.0.0",
+    "@skoreon/ingestion-orchestrator": "0.0.0",
     "alchemy": "2.0.0-beta.75",
     "effect": "4.0.0-rc.112"
   }

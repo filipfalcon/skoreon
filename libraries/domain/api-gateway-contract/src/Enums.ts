@@ -11,3 +11,9 @@ export type PlayerPosition = typeof PlayerPosition.Type;
 
 export const TeamKind = Schema.Literals(['CLUB', 'NATIONAL']);
 export type TeamKind = typeof TeamKind.Type;
+
+export const Source = Schema.Literals(['FACR']);
+export type Source = typeof Source.Type;
+
+export const Side = Schema.Literals(['HOME', 'AWAY']);
+export type Side = typeof Side.Type;

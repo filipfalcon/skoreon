@@ -1,0 +1,48 @@
+name: Deploy
+run-name: Deploy to ${{ inputs.environment || 'Development' }}
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        type: choice
+        default: Development
+        options:
+          - Development
+          - Staging
+          - Production
+
+concurrency:
+  group: deploy-${{ inputs.environment || 'Development' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: ${{ inputs.environment || 'Development' }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'Development' }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy stack
+        run: npx alchemy deploy --stage "${{ vars.ALCHEMY_STAGE }}" --yes
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

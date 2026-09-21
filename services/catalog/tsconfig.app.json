@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*.ts", "../../types/workerd-import-meta.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "../../types/workerd-import-meta.d.ts",
+    "../../types/workerd-crypto.d.ts"
+  ],
   "references": [],
   "compilerOptions": {
     "outDir": "./tsbuild",

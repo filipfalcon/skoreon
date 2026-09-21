@@ -6,6 +6,10 @@
   "imports": {
     "#*": "./src/*.ts"
   },
+  "exports": {
+    "./*": "./src/*.ts",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "alchemy": "2.0.0-beta.75",
     "drizzle-orm": "1.0.0-rc.5-ab785fc",

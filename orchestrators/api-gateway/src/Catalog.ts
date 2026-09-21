@@ -1,4 +1,4 @@
-import CatalogService from '@skoreon/catalog-service/src/Entrypoint';
+import { CatalogService } from '@skoreon/catalog-service/Entrypoint';
 import * as Cloudflare from 'alchemy/Cloudflare';
 import * as Effect from 'effect/Effect';
 

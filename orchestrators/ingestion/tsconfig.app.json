@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "src/**/*.ts",
+    "../../types/workerd-import-meta.d.ts",
+    "../../types/workerd-crypto.d.ts",
+    "../../types/vite-raw.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../../services/catalog/tsconfig.app.json"
+    },
+    {
+      "path": "../../services/match/tsconfig.app.json"
+    },
+    {
+      "path": "../../libraries/domain/api-gateway-contract/tsconfig.lib.json"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "./tsbuild",
+    "types": []
+  }
+}

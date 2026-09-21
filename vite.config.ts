@@ -1,3 +1,4 @@
+import { recommended } from '@effect/tsgo/oxlint-presets';
 import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
@@ -7,6 +8,7 @@ export default defineConfig({
     singleQuote: true,
   },
   lint: {
+    extends: [recommended],
     options: {
       typeAware: true,
       typeCheck: true,
