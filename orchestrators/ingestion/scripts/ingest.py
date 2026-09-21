@@ -51,6 +51,8 @@ for r in R:
         if not has_part(tm): NEW_T[tm]=1
         for e in r[side]['entries']:
             fix_name(e); fam,giv=e['name']['familyName'],e['name']['givenName']
+            if e['isGoalkeeper'] and person(fam,giv) and c.execute("select 1 from players pl join persons pe on pe.id=pl.person_id where pe.family_name=? and pe.given_name=? and pl.primary_position<>'GOALKEEPER'",(fam,giv)).fetchone():
+                print(f"  ?? {fam} {giv} chytala za {tm}, v katalogu není brankářka")
             if any(x==(tm,comp) for x in regs_of(fam,giv)): continue
             elsewhere=regs_of(fam,giv)
             if not elsewhere and not person(fam,giv): NEW_P[(giv,fam,tm)]='GOALKEEPER' if e['isGoalkeeper'] else 'MIDFIELDER'

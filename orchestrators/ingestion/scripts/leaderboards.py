@@ -40,8 +40,13 @@ def keepers(comp, top=8, K_=3.0):
     for mid,hp,ap,dur in matches(comp):
         for pid,opp in ((hp,ap),(ap,hp)):
             tm_[pid]=tm_.get(pid,0)+1
-            for rid,(s,e) in spells(mid,pid).items():
-                if who(rid)[2]!='GOALKEEPER': continue
+            # A keeper by trade who comes on while another keeper stays on the pitch
+            # played outfield; only the spell that started first counts in goal.
+            gk=sorted(((s,e,rid) for rid,(s,e) in spells(mid,pid).items() if who(rid)[2]=='GOALKEEPER'))
+            covered=0
+            for s,e,rid in gk:
+                if s<covered: continue
+                covered=e
                 played=min(e,dur)-s; con=ga(mid,opp,s,e); r=st.setdefault(rid,[0,0,0]); r[0]+=played; r[1]+=con; r[2]+=played if con==0 else 0
     rows=[(who(rid)[0],who(rid)[1],m,g,c,tm_.get(who(rid)[3],0)) for rid,(m,g,c) in st.items()]
     for item in filter(None,os.environ.get('EXTRA_KEEPERS','').split(';')):
