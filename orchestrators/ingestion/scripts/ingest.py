@@ -2,17 +2,20 @@
 """ingest.py <comp> <round> <target-match-file> <json...>
 MatchReport JSON (parser skoreon) -> SQL do skoreova-data. Ověří v kopii, pak zapíše do repozitáře.
 Volby přes env: LOANS="Given Family>Team;..." registruje existující osobu k dalšímu týmu (hostování).
+             NEW="Given Family>Team;..." založí novou osobu i přes shodu jména s jinou (jmenovkyně).
 """
 import json, sqlite3, sys, os, re, shutil, subprocess, datetime, zoneinfo, tempfile
 D="/Users/johndoe/Studio/Development/filipfalcon/skoreova-data"; K=os.path.abspath(os.path.join(os.path.dirname(__file__),"..","..",".."))
 comp, rnd, target, files = sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4:]
 ALIAS={'SK Artis Brno Líšeň-Žabovřesky':'SK Artis Brno','FC Viktoria Plzeň "B"':'FC Viktoria Plzeň B','AC Sparta Praha "B"':'AC Sparta Praha B',
  'FC Slovan Liberec "B"':'FC Slovan Liberec B','Lokomotiva Brno H.H.':'Lokomotiva Brno Horní Heršpice','1.FC Slovácko':'1. FC Slovácko',
- 'TJ TATRAN Rakovník':'TJ Tatran Rakovník','1.FK Příbram':'1.FK Příbram Akademie','MFK VYŠKOV':'MFK Vyškov','SK Bakov n/J':'SK Bakov nad Jizerou','FC Táborsko':'FC Táborsko Akademie'}
+ 'TJ TATRAN Rakovník':'TJ Tatran Rakovník','1.FK Příbram':'1.FK Příbram Akademie','MFK VYŠKOV':'MFK Vyškov','SK Bakov n/J':'SK Bakov nad Jizerou','FC Táborsko':'FC Táborsko Akademie',
+ 'FK ČÁSLAV':'FK Čáslav','FK Baník Most - Souš':'FK Baník Most-Souš','Tělovýchovná jednota Mokré':'TJ Mokré'}
 SIB={'FC Viktoria Plzeň B':'FC Viktoria Plzeň','AC Sparta Praha B':'AC Sparta Praha','FC Slovan Liberec B':'FC Slovan Liberec'}; SIB.update({v:k for k,v in SIB.items()})
 LOANS={}
 for item in filter(None,os.environ.get('LOANS','').split(';')):
     who,tm=item.split('>'); LOANS.setdefault(who.strip(),set()).add(tm.strip())
+NEW={tuple(x.strip() for x in item.split('>')) for item in filter(None,os.environ.get('NEW','').split(';'))}
 FEM={'Nikol','Ester','Marit','Macey','Hope','Kess','Flavie','Sofiia','Tinatin','Alexie','Holly','Marie','Lucie','Dagmar','Miriam','Ingrid','Karin','Doris','Iris'}
 PRE='019f1af9-b400-7000-8000-'; TS='1782864000000'; tz=zoneinfo.ZoneInfo('Europe/Prague')
 ST=tempfile.mkdtemp(prefix='skoreova-stage-'); shutil.copytree(f"{D}/catalog",f"{ST}/catalog"); shutil.copytree(f"{D}/match",f"{ST}/match")
@@ -55,7 +58,7 @@ for r in R:
                 print(f"  ?? {fam} {giv} chytala za {tm}, v katalogu není brankářka")
             if any(x==(tm,comp) for x in regs_of(fam,giv)): continue
             elsewhere=regs_of(fam,giv)
-            if not elsewhere and not person(fam,giv): NEW_P[(giv,fam,tm)]='GOALKEEPER' if e['isGoalkeeper'] else 'MIDFIELDER'
+            if (not elsewhere and not person(fam,giv)) or (f"{giv} {fam}",tm) in NEW: NEW_P[(giv,fam,tm)]='GOALKEEPER' if e['isGoalkeeper'] else 'MIDFIELDER'
             elif any(x[0]==SIB.get(tm) for x in elsewhere) or tm in LOANS.get(f"{giv} {fam}",()): NEW_R[(giv,fam,tm)]=1
             else: FLAG.append(f"{fam} {giv} @ {tm}: existuje jinde {elsewhere or '(bez registrace)'}")
     for o in r['officials']:
@@ -132,7 +135,7 @@ for r in R:
         sv.append(f"  ('{i()}', {TS}, 'SYSTEM', {TS}, 'SYSTEM', '{mid}', '{part(tm)}', '{reg(tm,x['outgoing'])}', '{reg(tm,x['incoming'])}', {x['at']['minute']}, {N(x['at']['stoppageMinute'])})")
     if sv: out.append("INSERT OR IGNORE INTO substitutions\n  (id, created_at, created_by, updated_at, updated_by, match_id, participation_id, outgoing_registration_id, incoming_registration_id, minute, stoppage_minute)\nVALUES\n"+",\n".join(sv)+";\n")
     cw=[f"  ('{i()}', {TS}, 'SYSTEM', {TS}, 'SYSTEM', '{mid}', '{pid_of(o['name']['givenName'],o['name']['familyName'])}', '{o['role']}')" for o in r['officials']]
-    out.append("INSERT OR IGNORE INTO crew_assignments\n  (id, created_at, created_by, updated_at, updated_by, match_id, person_id, role)\nVALUES\n"+",\n".join(cw)+";\n")
+    if cw: out.append("INSERT OR IGNORE INTO crew_assignments\n  (id, created_at, created_by, updated_at, updated_by, match_id, person_id, role)\nVALUES\n"+",\n".join(cw)+";\n")
     print(f"  {r['source']['matchNumber']} {H} – {A} {sc['home']}:{sc['away']}  góly={len(r['goals'])} karty={len(r['cards'])} střídání={len(r['substitutions'])}")
 open(f"{ST}/match/{target}",'a').write("\n"+"\n".join(out))
 # --- verify
