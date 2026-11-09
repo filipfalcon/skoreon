@@ -144,8 +144,8 @@ describe('parseFacrMatchPage, a page with a visitor goal and a second yellow', (
 });
 
 describe('parseFacrMatchPage, a tie decided on penalties', () => {
-  // A shoot-out is printed before the half-time score, and the result as a
-  // 1:0 win for the side that won it, whatever the timeline says.
+  // A shoot-out is printed before the half-time score, and the result as the
+  // score after play with one goal more for the side that won it.
   const decided = visitorGoalPage
     .replace(/<strong class="H3">\s*4:1\s*<\/strong>/, '<strong class="H3"> 0:1 </strong>')
     .replace('(4:0)', 'Pen: 3:4 (0:0)')
@@ -160,6 +160,20 @@ describe('parseFacrMatchPage, a tie decided on penalties', () => {
     expect(report.fullTimeScore).toEqual({ home: 0, away: 0 });
     expect(report.halfTimeScore).toEqual({ home: 0, away: 0 });
     expect(report.penaltyShootout).toEqual({ home: 3, away: 4 });
+  });
+
+  it('keeps a scoring draw after play, printed with the winner one goal up', () => {
+    const scoring = visitorGoalPage
+      .replace(/<strong class="H3">\s*4:1\s*<\/strong>/, '<strong class="H3"> 2:1 </strong>')
+      .replace('(4:0)', 'Pen: 5:4 (1:0)')
+      .replace(
+        /<li[^>]*class="MatchTimeline-item MatchTimeline-item--home"[\s\S]*?<\/li>/g,
+        (item) => (item.includes('<strong>10.</strong>') ? item : ''),
+      );
+    const drawn = Effect.runSync(parseFacrMatchPage(scoring));
+    expect(drawn.goals).toHaveLength(2);
+    expect(drawn.fullTimeScore).toEqual({ home: 1, away: 1 });
+    expect(drawn.penaltyShootout).toEqual({ home: 5, away: 4 });
   });
 
   it('reads a goal marked "(penalta)" as a penalty', () => {

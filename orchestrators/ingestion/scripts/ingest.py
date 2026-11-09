@@ -59,7 +59,7 @@ for r in R:
             if any(x==(tm,comp) for x in regs_of(fam,giv)): continue
             elsewhere=regs_of(fam,giv)
             if (not elsewhere and not person(fam,giv)) or (f"{giv} {fam}",tm) in NEW: NEW_P[(giv,fam,tm)]='GOALKEEPER' if e['isGoalkeeper'] else 'MIDFIELDER'
-            elif any(x[0]==SIB.get(tm) for x in elsewhere) or tm in LOANS.get(f"{giv} {fam}",()): NEW_R[(giv,fam,tm)]=1
+            elif any(x[0] in (tm,SIB.get(tm)) for x in elsewhere) or tm in LOANS.get(f"{giv} {fam}",()): NEW_R[(giv,fam,tm)]=1
             else: FLAG.append(f"{fam} {giv} @ {tm}: existuje jinde {elsewhere or '(bez registrace)'}")
     for o in r['officials']:
         giv,fam=o['name']['givenName'],o['name']['familyName']

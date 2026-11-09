@@ -126,8 +126,8 @@ export const parseFacrMatchPage = (
   const halfTime = halfTimeMark.exec(halfTimeText);
   if (halfTimeText !== '' && halfTime === null) note(`"${halfTimeText}" is not a half-time score`);
   // A tie decided on penalties prints "Pen: 4:3" before the half-time score,
-  // and the result as a 1:0 win for the side that won the shoot-out; the
-  // score after play is what the timeline adds up to.
+  // and the result as the score after play with one goal more for the side
+  // that won the shoot-out; the score after play is what the timeline adds up to.
   const shootout =
     halfTime?.[1] === undefined ? null : { home: Number(halfTime[1]), away: Number(halfTime[2]) };
 
@@ -374,7 +374,11 @@ export const parseFacrMatchPage = (
   }
   if (score !== null && shootout !== null) {
     const winner =
-      shootout.home > shootout.away ? '1:0' : shootout.home < shootout.away ? '0:1' : '';
+      shootout.home > shootout.away
+        ? `${homeGoals + 1}:${awayGoals}`
+        : shootout.home < shootout.away
+          ? `${homeGoals}:${awayGoals + 1}`
+          : '';
     if (homeGoals !== awayGoals || `${score[1]}:${score[2]}` !== winner) {
       note(
         `the timeline has ${homeGoals}:${awayGoals} goals and the shoot-out ${shootout.home}:${shootout.away}, but the score is ${score[1]}:${score[2]}`,
